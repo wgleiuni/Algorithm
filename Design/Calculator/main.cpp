@@ -11,30 +11,35 @@ class TreeNode {
         TreeNode *left,*right;
         TreeNode(string x): val(x), left(NULL), right(NULL) {}
         virtual string eval(string a,string b) {return "";};
+        virtual ~TreeNode(){};
 };
 
 class TreeNode_p : public TreeNode {
     public:
         TreeNode_p(string x) : TreeNode(x) {}
         string eval(string a,string b) {return to_string(stoll(a)+stoll(b));};
+        ~TreeNode_p(){};
 };
 
 class TreeNode_m : public TreeNode {
     public:
         TreeNode_m(string x) : TreeNode(x) {}
         string eval(string a,string b) {return to_string(stoll(a)-stoll(b));};
+        ~TreeNode_m(){};
 };
 
 class TreeNode_t : public TreeNode {
     public:
         TreeNode_t(string x) : TreeNode(x) {}
         string eval(string a,string b) {return to_string(stoll(a)*stoll(b));};
+        ~TreeNode_t(){};
 };
 
 class TreeNode_d : public TreeNode {
     public:
         TreeNode_d(string x) : TreeNode(x) {}
         string eval(string a,string b) {return to_string(stoll(a)/stoll(b));};
+        ~TreeNode_d(){};
 };
 
 class Calculator {

@@ -8,35 +8,26 @@
 #include <unordered_map>
 #include <queue>
 #include <stack>
+#include <list>
 #include <algorithm>
 #include <utility>
 using namespace std;
-class Solution {
+class Base {
     public:
-        std::vector<int> countBits(int);
+        void foo() {cout << "base foo()" << endl;};
+        virtual void bar() {cout << "base bar()" << endl;}
 };
 
-std::vector<int> Solution::countBits(int num) {
-    vector<int> out;
-    return out;
-}
-
-void func() {
-    static int x=0;
-    cout << x << endl;
-    x=x+1;
-}
+class Solution : public Base {
+    public:
+        void foo() {cout << "derived foo()" << endl;};
+        void bar() {cout << "derived bar()" << endl;};
+};
 
 int main(int argc, char *argv[])
 {
-    Solution sol;
-    int num=10;
-    auto out=sol.countBits(num);
-    for (int i=0;i<out.size();i++) {
-        std::cout << out[i] << std::endl;
-    }
-    func();
-    func();
-    func();
+    Base *obj=new Solution();
+    obj->foo();
+    obj->bar();
     return 0;
 }
